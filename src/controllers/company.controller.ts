@@ -40,7 +40,6 @@ export class CompanyController {
     private addCompany = async(req: Request, res: Response) => {
         try {
             const result = await this.companyService.addCompany(req.body);
-            console.log(result)
             res.send({
                 "status": 201,
                 "code": "201",

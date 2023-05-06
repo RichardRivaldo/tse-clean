@@ -1,5 +1,5 @@
 import { ICompany } from "../interfaces/company.interface";
-import { Company } from "../models/company.models";
+import { Company } from "../models/company.model";
 
 export class CompanyService {
     public async getAll(): Promise<ICompany[]> {
