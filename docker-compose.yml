@@ -1,0 +1,7 @@
+version: "3.1"
+services:
+  app:
+    container_name: dipay
+    build: ./
+    ports:
+      - 8000:8000

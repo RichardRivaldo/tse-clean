@@ -4,7 +4,10 @@
     "description": "Express-TypeScript Clean Architecture",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon"
+        "dev": "nodemon",
+        "tsc": "tsc",
+        "build": "tsc",
+        "start": "node dist/server.js"
     },
     "repository": {
         "type": "git",
