@@ -3,8 +3,14 @@ import cors from "cors";
 import 'dotenv/config';
 import express, { Application } from "express";
 import mongoose from "mongoose";
+import { CombinationController } from "./controllers/combination.controller";
 import { CompanyController } from "./controllers/company.controller";
+import { EmployeeController } from "./controllers/employee.controller";
+import { FibonacciController } from "./controllers/fibonacci.controller";
+import { CombinationService } from "./services/combination.service";
 import { CompanyService } from "./services/company.service";
+import { EmployeeService } from "./services/employee.service";
+import { FibonacciService } from "./services/fibonacci.service";
 
 class App {
     public app: Application;
@@ -28,8 +34,14 @@ class App {
 
     private setControllers() {
         const companyController = new CompanyController(new CompanyService());
+        const employeeController = new EmployeeController(new EmployeeService());
+        const fibonacciController = new FibonacciController(new FibonacciService());
+        const combinationController = new CombinationController(new CombinationService());
 
         this.app.use("/company", companyController.router);
+        this.app.use("/employee", employeeController.router);
+        this.app.use("/fibonacci", fibonacciController.router);
+        this.app.use("/combination", combinationController.router);
     }
 
     private setDatabaseConfig() {
