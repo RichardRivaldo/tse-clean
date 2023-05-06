@@ -5,10 +5,12 @@ import express, { Application } from "express";
 import mongoose from "mongoose";
 import { CombinationController } from "./controllers/combination.controller";
 import { CompanyController } from "./controllers/company.controller";
+import { CountryController } from "./controllers/countries.controller";
 import { EmployeeController } from "./controllers/employee.controller";
 import { FibonacciController } from "./controllers/fibonacci.controller";
 import { CombinationService } from "./services/combination.service";
 import { CompanyService } from "./services/company.service";
+import { CountryService } from "./services/countries.service";
 import { EmployeeService } from "./services/employee.service";
 import { FibonacciService } from "./services/fibonacci.service";
 
@@ -37,11 +39,13 @@ class App {
         const employeeController = new EmployeeController(new EmployeeService());
         const fibonacciController = new FibonacciController(new FibonacciService());
         const combinationController = new CombinationController(new CombinationService());
+        const countryController = new CountryController(new CountryService());
 
         this.app.use("/company", companyController.router);
         this.app.use("/employee", employeeController.router);
         this.app.use("/fibonacci", fibonacciController.router);
         this.app.use("/combination", combinationController.router);
+        this.app.use("/countries", countryController.router);
     }
 
     private setDatabaseConfig() {

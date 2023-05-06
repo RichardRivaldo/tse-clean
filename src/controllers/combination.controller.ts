@@ -11,10 +11,10 @@ export class CombinationController {
     }
 
     private setRoutes() {
-        this.router.post("/", this.fibonacci);
+        this.router.post("/", this.combination);
     }
 
-    private fibonacci = async(req: Request, res: Response) => {
+    private combination = async(req: Request, res: Response) => {
         try {
             const result = await this.combinationService.generate(req.body);
             res.send({

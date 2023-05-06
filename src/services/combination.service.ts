@@ -1,7 +1,7 @@
 import { ICombination } from "../interfaces/combination.interface";
 
 export class CombinationService {
-    public generate(component: ICombination): Promise<string> {
+    public async generate(component: ICombination): Promise<string> {
         if (!(component.n && component.r)) {
             throw new Error("n or r is required!");
         }

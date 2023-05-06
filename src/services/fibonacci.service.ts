@@ -1,7 +1,7 @@
 import { IFibonacci } from "../interfaces/fibonacci.interface";
 
 export class FibonacciService {
-    public generate(component: IFibonacci): Promise<string> {
+    public async generate(component: IFibonacci): Promise<string> {
         if (!component.n) {
             throw new Error("n is required!");
         }
