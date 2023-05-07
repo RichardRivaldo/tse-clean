@@ -1,4 +1,6 @@
 import { Request, Response, Router } from "express";
+import { companyMiddleware } from "../middlewares/company.middleware";
+import { employeeMiddleware } from "../middlewares/employee.middleware";
 import { CompanyService } from "../services/company.service";
 
 export class CompanyController {
@@ -12,10 +14,10 @@ export class CompanyController {
 
     private setRoutes() {
         this.router.get("/", this.getAll);
-        this.router.post("/", this.addCompany);
+        this.router.post("/", [companyMiddleware], this.addCompany);
         this.router.put("/:id/set_active", this.setActive);
 
-        this.router.post("/:company_id/employees", this.addEmployee);
+        this.router.post("/:company_id/employees", [employeeMiddleware], this.addEmployee);
         this.router.get("/:company_id/employees", this.getEmployeesByCompany);
         this.router.put("/:company_id/employees/:employee_id", this.updateEmployee);
     }
