@@ -33,6 +33,6 @@ const employeeSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: [true, "Field is required"]
     },
-})
+});
 
 export const Employee = model<IEmployee>("employees", employeeSchema);

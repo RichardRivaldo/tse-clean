@@ -1,4 +1,5 @@
 import { Document } from "mongoose";
+import { JobTitle } from "../types/job_title.enum";
 
 export interface IEmployee extends Document {
     id: string;

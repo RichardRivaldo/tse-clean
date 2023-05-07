@@ -27,6 +27,6 @@ const companySchema = new Schema({
         maxlength: 50,
         default: null
     },
-})
+});
 
 export const Company = model<ICompany>("companies", companySchema);
