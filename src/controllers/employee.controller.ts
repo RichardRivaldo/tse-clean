@@ -36,7 +36,7 @@ export class EmployeeController {
     private deleteEmployee = async(req: Request, res: Response) => {
         try {
             await this.employeeService.deleteEmployee(req.params.id);
-            res.status(204);
+            res.status(204).send();
         } catch (err) {
             res.status(500).send({
                 "status": 500,
