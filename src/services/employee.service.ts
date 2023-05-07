@@ -3,7 +3,7 @@ import { Employee } from "../models/employee.model";
 
 export class EmployeeService {
     public async getById(id: string): Promise<IEmployee | null> {
-        return Employee.findById(id);
+        return Employee.findById(id).select("-email -company_id");
     }
 
     public async deleteEmployee(id: string) {

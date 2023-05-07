@@ -41,8 +41,8 @@ class App {
         const combinationController = new CombinationController(new CombinationService());
         const countryController = new CountryController(new CountryService());
 
-        this.app.use("/company", companyController.router);
-        this.app.use("/employee", employeeController.router);
+        this.app.use("/companies", companyController.router);
+        this.app.use("/employees", employeeController.router);
         this.app.use("/fibonacci", fibonacciController.router);
         this.app.use("/combination", combinationController.router);
         this.app.use("/countries", countryController.router);
