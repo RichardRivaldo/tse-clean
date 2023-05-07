@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import 'dotenv/config';
-import express, { Application } from "express";
+import express, { Application, Router } from "express";
 import mongoose from "mongoose";
 import { CombinationController } from "./controllers/combination.controller";
 import { CompanyController } from "./controllers/company.controller";
@@ -41,11 +41,14 @@ class App {
         const combinationController = new CombinationController(new CombinationService());
         const countryController = new CountryController(new CountryService());
 
-        this.app.use("/companies", companyController.router);
-        this.app.use("/employees", employeeController.router);
-        this.app.use("/fibonacci", fibonacciController.router);
-        this.app.use("/combination", combinationController.router);
-        this.app.use("/countries", countryController.router);
+        const rootRouter = Router();
+        this.app.use("/api", rootRouter);
+
+        rootRouter.use("/companies", companyController.router);
+        rootRouter.use("/employees", employeeController.router);
+        rootRouter.use("/fibonacci", fibonacciController.router);
+        rootRouter.use("/combination", combinationController.router);
+        rootRouter.use("/countries", countryController.router);
     }
 
     private setDatabaseConfig() {
